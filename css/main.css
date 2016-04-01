@@ -1,0 +1,138 @@
+/*body{
+	background-image: url(grass.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat; 
+}*/
+
+#content{
+	background-image: url(grass.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat; 
+}
+
+.container{
+	background-color: transparent;
+	width: all;
+}
+
+/*.WholePark{
+	background-color: gray;
+	border-style: solid;
+	border-width: 3px;
+
+}
+*/
+.ParkName{
+	display: block;
+	font-size: 40px;
+	font-style: italic;
+	margin-left: 3%;
+	margin-top: 5%;
+
+}
+
+.Name{
+	display: block;
+	margin-top: 50px;
+	font-size: 35px;
+	margin-left: 7%;
+
+	margin-bottom: 15px;
+}
+
+.img-responsive{
+	display: block;
+	width: 320px;
+	height: 320px;
+	margin-left: 10%;
+	margin-bottom: -320px;
+	border-width: 5px;
+	border-style: dashed;
+	border-color: black;
+}
+
+.intro{
+	position: relative;
+	height: 320px;
+	display: block;
+	margin-left: 35%;
+	font-size: 20px;
+	margin-right: 60px;
+	background-color:#CEF6E3;
+	border-width: 5px;
+	border-style: dashed;
+	border-color: black;
+/*	border-left: transparent;
+*/	
+}
+
+.Title{
+	display: block;
+	background-color: transparent;
+
+}
+
+.Describition{
+	display: block;
+	background-color: transparent;
+
+}
+
+.singlelink{
+	margin: 5px;
+	display: inline-block;
+	z-index: 10px;
+	background-color: transparent;
+}
+
+/*.*{
+	background-image:url(./grass.jpg);
+}*/
+
+.bubblingG {
+	text-align: center;
+	width:78px;
+	height:49px;
+	margin: auto;
+}
+
+.bubblingG span {
+	display: inline-block;
+	vertical-align: middle;
+	width: 10px;
+	height: 10px;
+	margin: 24px auto;
+	background: rgb(0,0,0);
+	border-radius: 49px;
+	animation: bubblingG 1.5s infinite alternate;
+}
+
+#bubblingG_1 {
+	animation-delay: 0s;
+}
+
+#bubblingG_2 {
+	animation-delay: 0.45s;
+}
+
+#bubblingG_3 {
+	animation-delay: 0.9s;
+}
+
+
+
+@keyframes bubblingG {
+	0% {
+		width: 10px;
+		height: 10px;
+		background-color:rgb(0,0,0);
+		transform: translateY(0);
+	}
+
+	100% {
+		width: 23px;
+		height: 23px;
+		background-color:rgb(255,255,255);
+		transform: translateY(-20px);
+	}
+}

@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <meta charset="UTF-8">
+
+  </head>
+
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container_up">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Back to top</a>
+        </div>
+      </div>
+    </nav>
+<!-- 
+    <div id="bigback">
+      <img src=grass.jpg class="bigback">
+    </div> -->
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <div class="Title">
+          <h1>Taipei Parks</h1>
+        </div>
+        <div class="Describition">
+          <h3>走吧，踏青去</h3>
+          <h5>點連結會到對應的公園唷！</h5>
+        </div>
+        <div id="Links"></div> 
+      </div>
+      
+
+      <div id="content" class="row"></div>
+
+
+    </div>
+    
+
+    <div class="bubblingG">
+      <span id="bubblingG_1">
+        </span>
+      <span id="bubblingG_2">
+        </span>
+      <span id="bubblingG_3">
+        </span>
+    </div>
+  </body>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    getData(function(err, data) {
+        if (err) {
+            console.log(err);
+        } else {
+            var parkList = data.result.results;
+            var Title=[];
+            var HTMLparkList = parkList.map(function(park) {
+                if ($.inArray(park.ParkName, Title) == -1){
+                  Title.push(park.ParkName);
+                  var HTMLString = "<div class=\"WholePark\"> <a name=\""+park.ParkName+"\"></a><div class= \"ParkName\">"+ park.ParkName +"</div><div class= \"Name\">"+park.Name+"</div> <img src=\"" + park['Image'] + "\" class=\"img-responsive\" alt=\"Responsive image\"> <div class=\"intro\">"+ park.Introduction + "</div>";
+                } else{
+                  var HTMLString = "<div class= \"Name\">"+park.Name+"</div><img src=\"" + park['Image'] + "\" class=\"img-responsive\" alt=\"Responsive image\"> <div class=\"intro\">"+ park.Introduction + "</div></div>";
+                }
+                return HTMLString;
+            });
+            
+            HTMLparkList.forEach(function(html) {
+                $(html).appendTo("#content");
+            });
+            for (var i = 0; i < Title.length; i++) {
+              var link = "<a href=\"#"+Title[i]+"\" class=\"singlelink\">"+Title[i]+"</a>"
+              $(link).appendTo("#Links");
+            }
+        }
+    });
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+</html>
